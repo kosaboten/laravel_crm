@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\CustomerRequest;
 use App\Models\Customer;
 
@@ -24,7 +25,7 @@ class CustomerController extends Controller
         return view('customers.create');
     }
 
-    public function search(CustomerRequest $request)
+    public function search(Request $request)
     {
         // APIアクセスURL
         $url = 'https://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $request->zipcode;
