@@ -72,7 +72,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return view('customers.show', compact('customer'));
     }
 
     /**
@@ -80,7 +80,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.edit', compact('customer'));
     }
 
     /**
@@ -88,7 +88,15 @@ class CustomerController extends Controller
      */
     public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->name = $request->name;
+        $customer->mail = $request->mail;
+        $customer->zipcode = $request->zipcode;
+        $customer->address = $request->address;
+        $customer->tel = $request->tel;
+
+        $customer->save();
+
+        return redirect(route('customers.index'));
     }
 
     /**
@@ -96,6 +104,7 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+        return redirect()->route('customers.index');
     }
 }
