@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>郵便番号検索画面</h1>
-    <form action="/customers/search" method="get">
+    <form action="/customers/search/1" method="get">
         @csrf
         <label for="zipcode">郵便番号検索</label>
         <input type="text" name="zipcode" placeholder="検索したい郵便番号">
