@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerRequest;
 use App\Models\Customer;
-use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -24,7 +24,7 @@ class CustomerController extends Controller
         return view('customers.create');
     }
 
-    public function search(Request $request)
+    public function search(CustomerRequest $request)
     {
         // APIアクセスURL
         $url = 'https://zipcloud.ibsnet.co.jp/api/search?zipcode=' . $request->zipcode;
@@ -53,7 +53,7 @@ class CustomerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
         $customer = new Customer();
         $customer->name = $request->name;
@@ -86,7 +86,7 @@ class CustomerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerRequest $request, Customer $customer)
     {
         $customer->name = $request->name;
         $customer->mail = $request->mail;

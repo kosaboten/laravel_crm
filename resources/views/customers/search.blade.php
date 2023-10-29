@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>新規登録画面</h1>
+    @if ($errors->any())
+        <div class="error" style="color: red;">
+            <p>
+                <b>{{ count($errors) }}件のエラーがあります。</b>
+            </p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('customers.store') }}" method="post">
         @csrf
         <label for="name">名前</label>

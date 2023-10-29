@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>編集画面</h1>
+    @if ($errors->any())
+        <div class="error" style="color: red;">
+            <p>
+                <b>{{ count($errors) }}件のエラーがあります。</b>
+            </p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('customers.update', $customer) }}" method="post">
         @csrf
         @method('PATCH')
