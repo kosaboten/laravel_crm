@@ -23,15 +23,15 @@
     <form action="{{ route('customers.store') }}" method="post">
         @csrf
         <label for="name">名前</label>
-        <input type="text" name="name"><br>
+        <input type="text" name="name" value="{{ old('name') }}"><br>
         <label for="mail">メール</label>
-        <input type="text" name="mail"><br>
+        <input type="text" name="mail" value="{{ old('mail') }}"><br>
         <label for="zipcode">郵便番号</label>
         <input type="text" name="zipcode" value="{{ $postcode }}"><br>
         <label for="address">住所</label>
         <textarea name="address">{{ $address }}</textarea><br>
         <label for="tel">電話番号</label>
-        <input type="text" name="tel"><br>
+        <input type="text" name="tel" value="{{ old('name') }}"><br>
         <input type="submit" value="登録"><br>
     </form>
 </body>

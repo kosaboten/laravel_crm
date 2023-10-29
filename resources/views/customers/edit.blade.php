@@ -24,15 +24,15 @@
         @csrf
         @method('PATCH')
         <label for="name">名前</label>
-        <input type="text" name="name" value="{{ $customer->name }}"><br>
+        <input type="text" name="name" value="{{ old('name', $customer->name) }}"><br>
         <label for="mail">メール</label>
-        <input type="text" name="mail" value="{{ $customer->mail }}"><br>
+        <input type="text" name="mail" value="{{ old('mail', $customer->mail) }}"><br>
         <label for="zipcode">郵便番号</label>
-        <input type="text" name="zipcode" value="{{ $customer->zipcode }}"><br>
+        <input type="text" name="zipcode" value="{{ old('zipcode', $customer->zipcode) }}"><br>
         <label for="address">住所</label>
-        <textarea name="address">{{ $customer->address }}</textarea><br>
+        <textarea name="address">{{ old('address', $customer->address) }}</textarea><br>
         <label for="tel">電話番号</label>
-        <input type="text" name="tel" value="{{ $customer->tel }}"><br>
+        <input type="text" name="tel" value="{{ old('tel', $customer->tel) }}"><br>
         <input type="submit" value="更新"><br>
     </form>
 </body>
